@@ -3,6 +3,7 @@ import './App.css';
 import config from './config';
 import io from 'socket.io-client';
 import BottomBar from './BottomBar';
+import styled from "styled-components"
 
 class App extends React.Component{
   constructor(props){
@@ -81,17 +82,17 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        <section id="chat">
-          {this.state.chat.map((elm, i) => {
+        <Chat id="chat">
+          {this.state.chat.map((e, i) => {
             return(
               <div key={i}>
-                <p>{elm.name}</p>
-                <p>{elm.content}</p>
+                <Name>{e.name}:</Name>
+                <p>{e.content}</p>
 
               </div>
             )
           })}
-        </section>
+        </Chat>
         <BottomBar content={this.state.content}
         handleContent={this.handleContent.bind(this)}
         handleName={this.handleName.bind(this)}
@@ -102,5 +103,13 @@ class App extends React.Component{
     )
   }
 }
+
+const Chat = styled.section`
+color: #00000;
+`
+const Name = styled.p`
+font-weight: bold;
+`
+
 
 export default App;

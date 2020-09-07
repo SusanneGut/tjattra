@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     top: 'auto',
   },
+  toolBar:{
+      backgroundColor: '#5E4B56'
+  },
   inputContainer: {
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -47,7 +50,7 @@ export default function BottomBar(props) {
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar>
+      <Toolbar className={classes.toolBar}>
         <div className={classes.inputContainer} style={{maxWidth: '200px'}}>
           <div className={classes.icon}>
             <FaceIcon />
@@ -55,7 +58,7 @@ export default function BottomBar(props) {
           <InputBase
             onChange={props.handleName}
             value={props.name}
-            placeholder="Name"
+            placeholder="Your name"
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
